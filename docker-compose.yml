@@ -38,6 +38,8 @@ services:
         depends_on: 
             - db
             - redis
+        environment: 
+            DB_PASSWORD: postgres
         build: .
         command: bash start.sh
         ports: 
