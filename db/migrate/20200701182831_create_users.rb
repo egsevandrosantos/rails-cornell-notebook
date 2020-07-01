@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_column :users, :status, :status
+    add_column :users, :status, :status, default: :inactive
     add_index :users, :email, unique: true
     add_index :users, :username, unique: true
     add_index :users, :status
