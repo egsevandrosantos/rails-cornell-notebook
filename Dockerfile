@@ -2,7 +2,7 @@
 FROM ruby:2.7.1-slim
 # Instala dependencias
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-    build-essential nodejs libpq-dev imagemagick postgresql-client
+    build-essential nodejs libpq-dev imagemagick postgresql-client nano
 # Coloca o diretório padrão nos environments
 ENV INSTALL_PATH /cornell-notebook
 # Cria o diretório da aplicação
