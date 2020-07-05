@@ -1,7 +1,10 @@
 class User < ApplicationRecord
   include Util
   enum status: Util.array_to_enum_hash(Status::STATUSES), _prefix: true
+  has_many :user_confirmables
   has_secure_password
+
+  after_create :create_user_confirmable
 
   validates :full_name, :email, :username, presence: true
   validates :status, inclusion: { in: Status::STATUSES }
@@ -11,10 +14,8 @@ class User < ApplicationRecord
   validates :email, :username, uniqueness: true
   validates :email, email: true
 
-  def status
-    if !@status.eql?(read_attribute(:status))
-      @status = Status.new(read_attribute(:status))
-    end
-    @status.to_s
+  private
+  def create_user_confirmable
+    self.user_confirmables.create
   end
 end

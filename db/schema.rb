@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_182831) do
+ActiveRecord::Schema.define(version: 2020_07_05_223923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+# Could not dump table "user_confirmables" because of following StandardError
+#   Unknown type 'confirmable_kind' for column 'kind'
+
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'status' for column 'status'
 
+  add_foreign_key "user_confirmables", "users"
 end
