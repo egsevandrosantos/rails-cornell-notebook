@@ -4,6 +4,6 @@ class UserConfirmable < ApplicationRecord
   belongs_to :user
   has_secure_token :confirmable_token
 
-  validates :kind, inclusion: { in: ConfirmableKind::KINDS }
+  validates :confirmable_kind, inclusion: { in: ConfirmableKind::KINDS }
   validates :user_id, presence: true
 end

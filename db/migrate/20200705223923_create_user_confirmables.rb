@@ -6,8 +6,8 @@ class CreateUserConfirmables < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_column :user_confirmables, :kind, :confirmable_kind, null: false, default: :confirm_account
-    add_index :user_confirmables, :kind
+    add_column :user_confirmables, :confirmable_kind, :confirmable_kind, null: false, default: :confirm_account
+    add_index :user_confirmables, :confirmable_kind
     add_index :user_confirmables, :confirmable_token, unique: true
   end
 end

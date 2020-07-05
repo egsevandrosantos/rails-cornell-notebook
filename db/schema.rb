@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_223923) do
   enable_extension "plpgsql"
 
 # Could not dump table "user_confirmables" because of following StandardError
-#   Unknown type 'confirmable_kind' for column 'kind'
+#   Unknown type 'confirmable_kind' for column 'confirmable_kind'
 
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'status' for column 'status'
